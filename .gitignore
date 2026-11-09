@@ -1,0 +1,23 @@
+# Secrets: never commit
+.env
+.env.*
+.dev.vars
+.dev.vars.*
+
+# Worker build/dependency folders
+node_modules/
+.wrangler/
+
+# Local tool / editor folders (Pages would publish them)
+.claude/
+.aws/
+.codex/
+.agents/
+.vscode/
+__pycache__/
+
+# AI-twin sources live in a separate private repo. These entries are a
+# safety net so they can never be published with the site.
+twin/
+worker/
+tests/
