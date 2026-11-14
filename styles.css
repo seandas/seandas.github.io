@@ -1692,6 +1692,7 @@ li:has(.entry-icon-cert):hover .entry-icon-cert {
 .nowrap { white-space: nowrap; }
 
 /* Projects */
+.project-card + .project-card { margin-top: 1.25rem; }
 .project-summary { margin: 0; max-width: 75ch; line-height: 1.6; color: var(--ink); }
 .project-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 1rem 0 0; padding: 0; }
 /* Two equal buttons side by side when they fit; each full width on phones */
