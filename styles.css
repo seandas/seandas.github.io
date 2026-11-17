@@ -1206,6 +1206,9 @@ main > .block:last-child { border-bottom: 0; }
   transform: scale(1.15);
 }
 .timeline .when { margin: 0 0 0.15rem; font-family: var(--display); font-size: 0.9rem; color: var(--muted); font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+.timeline .when-current { color: #1cb255; font-weight: 600; }
+:root[data-theme="dark"] .timeline .when-current { color: #1cb255; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .timeline .when-current { color: #1cb255; } }
 .timeline h3 { font-size: 1.2rem; margin-bottom: 0.35rem; }
 .timeline .org { font-weight: 400; }
 /* Timeline icons: a line icon per employer and school in the accent blue; the certification keeps the gold seal from the nav badge. */
@@ -1220,6 +1223,15 @@ li:has(.entry-icon-cert):hover .entry-icon-cert {
 .entry-icon-cert .tick { fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .entry-icon:not(.entry-icon-cert) { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .entry-icon.entry-icon-solid { fill: var(--accent); stroke: none; }
+/* Current role: a soft pulsing glow */
+.entry-icon-current { animation: current-glow 2.6s ease-in-out infinite; }
+@keyframes current-glow {
+  0%, 100% { filter: drop-shadow(0 0 2px color-mix(in srgb, var(--accent) 45%, transparent)); }
+  50% { filter: drop-shadow(0 0 7px color-mix(in srgb, var(--accent) 90%, transparent)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .entry-icon-current { animation: none; filter: drop-shadow(0 0 5px color-mix(in srgb, var(--accent) 70%, transparent)); }
+}
 .timeline a.org {
   color: var(--accent);
   text-decoration: underline;
